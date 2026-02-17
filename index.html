@@ -1,0 +1,207 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A27Playz — Ultra Pro Gaming Website</title><!-- Google Font --><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet"><style>
+
+:root{
+  --neon1: #00f7ff;
+  --neon2: #8a2eff;
+  --bg: #050510;
+}
+
+body{
+  margin:0;
+  font-family:'Orbitron',sans-serif;
+  background:var(--bg);
+  color:white;
+  overflow-x:hidden;
+}
+
+/* PARTICLES */
+#particles{
+  position:fixed;
+  width:100%;
+  height:100%;
+  z-index:-1;
+}
+
+/* NAVBAR */
+nav{
+  position:sticky;
+  top:0;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  padding:15px;
+  text-align:center;
+  border-bottom:1px solid var(--neon1);
+}
+
+nav a{
+  color:white;
+  margin:15px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+nav a:hover{
+  color:var(--neon1);
+  text-shadow:0 0 10px var(--neon1);
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:60px 20px;
+}
+
+.logo{
+  width:140px;
+  border-radius:50%;
+  box-shadow:0 0 30px var(--neon1);
+  animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from{box-shadow:0 0 20px var(--neon1);} 
+  to{box-shadow:0 0 60px var(--neon2);} 
+}
+
+h1{
+  font-size:3em;
+  background:linear-gradient(90deg,var(--neon1),var(--neon2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.btn{
+  display:inline-block;
+  padding:15px 30px;
+  margin-top:20px;
+  border-radius:10px;
+  background:linear-gradient(90deg,var(--neon1),var(--neon2));
+  color:black;
+  font-weight:bold;
+  text-decoration:none;
+  box-shadow:0 0 20px var(--neon1);
+}
+
+.btn:hover{
+  transform:scale(1.1);
+}
+
+/* STATS */
+.stats{
+  text-align:center;
+  padding:40px;
+}
+
+.counter{
+  font-size:2.5em;
+  color:var(--neon1);
+  text-shadow:0 0 15px var(--neon1);
+}
+
+/* VIDEOS */
+.videos{
+  text-align:center;
+  padding:40px;
+}
+
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;
+}
+
+iframe{
+  width:100%;
+  height:200px;
+  border-radius:10px;
+  box-shadow:0 0 20px var(--neon2);
+}
+
+/* SOCIAL */
+.social{
+  text-align:center;
+  padding:40px;
+}
+
+.social a{
+  margin:10px;
+  display:inline-block;
+  padding:10px 20px;
+  border:1px solid var(--neon1);
+  border-radius:10px;
+  color:white;
+  text-decoration:none;
+}
+
+.social a:hover{
+  background:var(--neon1);
+  color:black;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  border-top:1px solid var(--neon1);
+}
+
+</style></head>
+<body><canvas id="particles"></canvas>
+
+<nav>
+<a href="#">Home</a>
+<a href="#videos">Videos</a>
+<a href="#social">Social</a>
+</nav><section class="hero">
+<img src="logo.png" class="logo">
+<h1>A27Playz</h1>
+<p>Ultra Pro Gaming Channel</p>
+<a class="btn" href="https://youtube.com/@a27playz?si=rl-DN7mpmIm-Lia4" target="_blank">Subscribe Now</a>
+</section><section class="stats">
+<h2>Live Subscribers</h2>
+<div class="counter" id="subs">Loading...</div>
+</section><section class="videos" id="videos">
+<h2>Latest Videos</h2>
+<div class="video-grid"><iframe src="https://www.youtube.com/embed?listType=user_uploads&list=@a27playz"></iframe></div>
+</section><section class="social" id="social">
+<h2>Follow A27Playz</h2>
+<a href="https://youtube.com/@a27playz?si=rl-DN7mpmIm-Lia4">YouTube</a>
+</section><footer>
+© 2026 A27Playz — Ultra Pro Website
+</footer><script>
+
+/* PARTICLES */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+canvas.width=innerWidth;
+canvas.height=innerHeight;
+
+let p=[];
+for(let i=0;i<120;i++){
+ p.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:Math.random()-0.5,vy:Math.random()-0.5});
+}
+
+function draw(){
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+ ctx.fillStyle="#00f7ff";
+ p.forEach(e=>{
+   e.x+=e.vx;
+   e.y+=e.vy;
+   ctx.fillRect(e.x,e.y,2,2);
+ });
+ requestAnimationFrame(draw);
+}
+draw();
+
+/* SUB COUNT ANIMATION */
+let s=150;
+setInterval(()=>{
+ s+=Math.floor(Math.random()*5);
+ document.getElementById("subs").innerText=s+"+";
+},2000);
+
+</script></body>
+</html>
