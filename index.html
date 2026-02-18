@@ -2,7 +2,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A27Playz — Ultra Pro Gaming Website</title><!-- Google Font --><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet"><style>
+<title>A27Playz — Ultra Pro Gaming Website</title><!-- Google Font --><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">/* MERCH SECTION */
+.merch{
+padding:50px 20px;
+text-align:center;
+}
+
+.merch h2{
+font-size:2em;
+color:var(--neon1);
+margin-bottom:20px;
+}
+
+.merch-grid{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+
+.merch-item{
+background:#111;
+padding:15px;
+border-radius:15px;
+width:200px;
+box-shadow:0 0 20px var(--neon1);
+transition:0.3s;
+}
+
+.merch-item:hover{
+transform:scale(1.05);
+box-shadow:0 0 30px var(--neon2);
+}
+
+.merch-item img{
+width:100%;
+border-radius:10px;
+}
+
+.merch-item button{
+margin-top:10px;
+padding:10px;
+background:linear-gradient(45deg,var(--neon1),var(--neon2));
+border:none;
+border-radius:10px;
+color:black;
+font-weight:bold;
+cursor:pointer;
+}<style>
 
 :root{
   --neon1: #00f7ff;
